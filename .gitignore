@@ -19,6 +19,14 @@ integration/target
 integration/bin
 integration/**/*.orig
 
+jdk8/.classpath
+jdk8/.project
+jdk8/.settings
+jdk8/target
+jdk8/bin
+jdk8/**/*.orig
+
+
 web/.classpath
 web/.project
 web/.settings
