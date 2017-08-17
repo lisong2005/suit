@@ -1,0 +1,193 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>ls.demon</groupId>
+	<artifactId>web</artifactId>
+	<packaging>war</packaging>
+	<version>1.0.1-SNAPSHOT</version>
+	<name>web Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+
+
+	<properties>
+		<jdk.version>1.7</jdk.version>
+
+		<jaxservlet.api.version>2.5</jaxservlet.api.version>
+		<jaxjsp.api.version>2.1</jaxjsp.api.version>
+		<jaxjstl.api.version>1.2</jaxjstl.api.version>
+
+		<junit.version>4.11</junit.version>
+		<jmock.version>2.5.1</jmock.version>
+
+		<logback.version>1.1.7</logback.version>
+		<slf4j.version>1.7.21</slf4j.version>
+		<janino.version>2.7.8</janino.version>
+
+		<mybatis.version>3.3.0</mybatis.version>
+		<mybatis-spring.version>1.2.4</mybatis-spring.version>
+		<c3p0.version>0.9.5.2</c3p0.version>
+		<postgres.version>9.4.1208.jre6</postgres.version>
+
+		<jettison.version>1.3.7</jettison.version>
+
+		<httpclient.version>4.2.1</httpclient.version>
+		<spring.version>3.2.9.RELEASE</spring.version>
+
+		<xstream.version>1.4.9</xstream.version>
+		<jackson.version>2.6.0</jackson.version>
+
+		<poi.version>xx</poi.version>
+
+		<dependency.locations.enabled>false</dependency.locations.enabled>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	</properties>
+
+
+	<dependencyManagement>
+		<dependencies>
+
+			<!-- http://mvnrepository.com/artifact/org.springframework/spring-framework-bom -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-framework-bom</artifactId>
+				<version>3.2.17.RELEASE</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+
+			<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-bom -->
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-bom</artifactId>
+				<version>3.2.9.RELEASE</version>
+				<type>pom</type>
+			</dependency>
+
+
+			<!-- https://mvnrepository.com/artifact/org.glassfish.jersey/jersey-bom -->
+			<dependency>
+				<groupId>org.glassfish.jersey</groupId>
+				<artifactId>jersey-bom</artifactId>
+				<version>2.23.1</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+
+
+	<dependencies>
+
+
+		<!-- =================================================================== -->
+		<!-- =================================================================== -->
+		<!-- =================================================================== -->
+
+		<!-- Servlet Spec -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>${jaxservlet.api.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>${jaxjsp.api.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp.jstl</groupId>
+			<artifactId>jstl-api</artifactId>
+			<version>${jaxjstl.api.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+
+		<!-- Unit Test -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+
+	</dependencies>
+
+
+
+	<build>
+		<finalName>web</finalName>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.19.1</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.1</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>2.4</version>
+				</plugin>
+
+			</plugins>
+		</pluginManagement>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+
+			<!-- Set JDK Compiler Level -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<encoding>UTF-8</encoding>
+					<source>${jdk.version}</source>
+					<target>${jdk.version}</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<!-- 是否将classes文件部署成jar包 -->
+					<archiveClasses>false</archiveClasses>
+					<webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+					<webResources>
+						<resource>
+							<directory>src/main/resources/</directory>
+							<targetPath>WEB-INF/classes</targetPath>
+							<includes>
+								<include>*.xml</include>
+								<include>*.properties</include>
+							</includes>
+						</resource>
+					</webResources>
+				</configuration>
+			</plugin>
+
+		</plugins>
+
+	</build>
+</project>

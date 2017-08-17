@@ -19,6 +19,13 @@ integration/target
 integration/bin
 integration/**/*.orig
 
+web/.classpath
+web/.project
+web/.settings
+web/target
+web/bin
+web/**/*.orig
+
 
 druid-test/.classpath
 druid-test/.project
