@@ -26,7 +26,9 @@ public class X509CertificateUtilsTest {
     @Test
     public void test_001() {
         try {
-            X509Certificate c = X509CertificateUtils.getCertFromFile("d:/certs/ls.txt");
+            String path = getClass().getResource("/files/ls.txt").getPath();
+            logger.info("{}", path);
+            X509Certificate c = X509CertificateUtils.getCertFromFile(path);
 
             String encodeBase64String = Base64.encodeBase64String(c.getEncoded());
             String encodeHexString = Hex.encodeHexString(c.getEncoded());
@@ -55,5 +57,10 @@ public class X509CertificateUtilsTest {
     // ========================================
     // ========================================
     // ========================================
+
+    @Test
+    public void test_003() {
+        logger.info("{}", getClass().getResource("/files/ls.txt"));
+    }
 
 }
