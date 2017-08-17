@@ -17,9 +17,9 @@ import org.apache.commons.codec.binary.Base64;
  */
 public class PrivateKeyUtils {
 
-    public static PrivateKey getPrivateKeyFromPKCS8(String privateKey) throws Exception {
+    public static PrivateKey getPrivateKeyFromPKCS8(String base64PrivateKey) throws Exception {
         KeyFactory keyFactory = KeyFactory.getInstance("RSA");
-        byte[] encodedKey = privateKey.getBytes();
+        byte[] encodedKey = base64PrivateKey.getBytes();
         return keyFactory.generatePrivate(new PKCS8EncodedKeySpec(Base64.decodeBase64(encodedKey)));
     }
 }
