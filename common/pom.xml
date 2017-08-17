@@ -26,6 +26,26 @@
 	<dependencyManagement>
 		<dependencies>
 
+			<!-- http://mvnrepository.com/artifact/org.springframework/spring-framework-bom -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-framework-bom</artifactId>
+				<version>3.2.17.RELEASE</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+
+			<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-bom -->
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-bom</artifactId>
+				<version>3.2.9.RELEASE</version>
+				<type>pom</type>
+			</dependency>
+
+
+			<!-- https://mvnrepository.com/artifact/org.glassfish.jersey/jersey-bom -->
 			<dependency>
 				<groupId>org.glassfish.jersey</groupId>
 				<artifactId>jersey-bom</artifactId>
@@ -50,6 +70,26 @@
 		<!-- =================================================================== -->
 		<!-- =================================================================== -->
 		<!-- =================================================================== -->
+
+
+		<!-- Spring Core -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- =================================================================== -->
+		<!-- =================================================================== -->
+		<!-- =================================================================== -->
+
+
+
 
 		<dependency>
 			<groupId>org.slf4j</groupId>
