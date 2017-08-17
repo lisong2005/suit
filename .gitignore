@@ -12,6 +12,14 @@ common/target
 common/bin
 common/**/*.orig
 
+integration/.classpath
+integration/.project
+integration/.settings
+integration/target
+integration/bin
+integration/**/*.orig
+
+
 druid-test/.classpath
 druid-test/.project
 druid-test/.settings
