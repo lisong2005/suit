@@ -47,11 +47,41 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!-- =================================================================== -->
+		<!-- =================================================================== -->
+		<!-- =================================================================== -->
+
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
 			<version>${slf4j.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>log4j-over-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+
+
+
+		<!-- =================================================================== -->
+		<!-- =================================================================== -->
+		<!-- =================================================================== -->
 
 
 		<dependency>
@@ -63,6 +93,10 @@
 			<artifactId>jersey-media-json-jackson</artifactId>
 		</dependency>
 
+
+		<!-- =================================================================== -->
+		<!-- =================================================================== -->
+		<!-- =================================================================== -->
 
 		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
 		<dependency>
@@ -77,6 +111,7 @@
 			<artifactId>json</artifactId>
 			<version>20160810</version>
 		</dependency>
+
 		<dependency>
 			<groupId>commons-codec</groupId>
 			<artifactId>commons-codec</artifactId>
@@ -87,7 +122,11 @@
 			<artifactId>commons-beanutils</artifactId>
 			<version>1.9.2</version>
 		</dependency>
-
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
 
 		<!-- =================================================================== -->
 		<!-- =================================================================== -->
@@ -95,8 +134,8 @@
 
 
 	</dependencies>
-	
-	
+
+
 	<build>
 		<plugins>
 
@@ -128,8 +167,8 @@
 
 		</plugins>
 	</build>
-	
-	
+
+
 	<profiles>
 		<profile>
 			<id>release</id>
@@ -162,5 +201,5 @@
 			</build>
 		</profile>
 	</profiles>
-	
+
 </project>

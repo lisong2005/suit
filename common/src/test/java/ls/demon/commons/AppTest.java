@@ -1,5 +1,8 @@
 package ls.demon.commons;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -8,6 +11,11 @@ import junit.framework.TestSuite;
  * Unit test for simple App.
  */
 public class AppTest extends TestCase {
+    /**
+    * Logger for this class
+    */
+    private static final Logger logger = LoggerFactory.getLogger(AppTest.class);
+
     /**
      * Create the test case
      *
@@ -29,5 +37,6 @@ public class AppTest extends TestCase {
      */
     public void testApp() {
         assertTrue(true);
+        logger.info("yy");
     }
 }
