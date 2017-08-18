@@ -118,39 +118,17 @@
 		</dependency>
 
 
-
 		<!-- =================================================================== -->
 		<!-- =================================================================== -->
 		<!-- =================================================================== -->
 
 
-		<!-- <dependency> -->
-		<!-- <groupId>org.glassfish.jersey.core</groupId> -->
-		<!-- <artifactId>jersey-client</artifactId> -->
-		<!-- </dependency> -->
-		<!-- <dependency> -->
-		<!-- <groupId>org.glassfish.jersey.media</groupId> -->
-		<!-- <artifactId>jersey-media-json-jackson</artifactId> -->
-		<!-- </dependency> -->
+
 
 
 		<!-- =================================================================== -->
 		<!-- =================================================================== -->
 		<!-- =================================================================== -->
-
-		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-			<version>3.5</version>
-		</dependency>
-
-		<!-- https://mvnrepository.com/artifact/org.json/json -->
-		<dependency>
-			<groupId>org.json</groupId>
-			<artifactId>json</artifactId>
-			<version>20160810</version>
-		</dependency>
 
 		<dependency>
 			<groupId>commons-codec</groupId>
@@ -168,9 +146,31 @@
 			<version>2.4</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.5</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-csv -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-csv</artifactId>
+			<version>1.4</version>
+		</dependency>
+
 		<!-- =================================================================== -->
 		<!-- =================================================================== -->
 		<!-- =================================================================== -->
+
+		<!-- https://mvnrepository.com/artifact/org.json/json -->
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20160810</version>
+		</dependency>
+
 
 		<!-- https://mvnrepository.com/artifact/com.thoughtworks.xstream/xstream -->
 		<dependency>
@@ -204,6 +204,39 @@
 			<groupId>com.fasterxml.jackson.module</groupId>
 			<artifactId>jackson-module-jaxb-annotations</artifactId>
 			<version>${jackson.version}</version>
+		</dependency>
+
+
+		<!-- =================================================================== -->
+		<!-- =================================================================== -->
+		<!-- =================================================================== -->
+
+		<!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-jdk15on -->
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcprov-jdk15on</artifactId>
+			<version>1.57</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.bouncycastle/bcpkix-jdk15on -->
+		<dependency>
+			<groupId>org.bouncycastle</groupId>
+			<artifactId>bcpkix-jdk15on</artifactId>
+			<version>1.57</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.bouncycastle/bcprov-ext-jdk15on -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.bouncycastle</groupId> -->
+		<!-- <artifactId>bcprov-ext-jdk15on</artifactId> -->
+		<!-- <version>1.57</version> -->
+		<!-- </dependency> -->
+
+
+
+		<!-- https://mvnrepository.com/artifact/org.freemarker/freemarker -->
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+			<version>2.3.26-incubating</version>
 		</dependency>
 
 
