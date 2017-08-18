@@ -27,21 +27,20 @@ public class ResourceTest {
         try {
             ClassLoader contextClassLoader = Thread.currentThread().getContextClassLoader();
 
-            logger.info("{}", BaseModel.class.getClassLoader());
-            logger.info("{}", BaseModel.class.getClassLoader().getParent());
-            logger.info("{}", BaseModel.class.getClassLoader().getParent().getParent());
+            logger.info("{}", ClassLoader.getSystemClassLoader()); // sun.misc.Launcher$AppClassLoader@5d53d05b
+            logger.info("{}", BaseModel.class.getClassLoader()); // sun.misc.Launcher$AppClassLoader@5d53d05b
+            logger.info("{}", BaseModel.class.getClassLoader().getParent()); //sun.misc.Launcher$ExtClassLoader@2994363b
+            logger.info("{}", BaseModel.class.getClassLoader().getParent().getParent()); //null
             logger.info("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-            logger.info("{}", contextClassLoader);
-            logger.info("{}", Thread.currentThread().getClass().getClassLoader());
-            logger.info("{}", Thread.class.getClassLoader());
-            logger.info("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-
-            logger.info("{}", ResourceTest.class.getClassLoader());
-            logger.info("{}", new BaseModel().getClass().getClassLoader());
-
+            logger.info("{}", contextClassLoader); //sun.misc.Launcher$AppClassLoader@5d53d05b
+            logger.info("{}", Thread.currentThread().getClass().getClassLoader()); //null
+            logger.info("{}", Thread.class.getClassLoader()); //null
             logger.info("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 
-            //            logger.info("{}", new BaseModel().getClass().getClassLoader().getResource("/").getPath());
+            logger.info("{}", ResourceTest.class.getClassLoader()); //sun.misc.Launcher$AppClassLoader@5d53d05b
+            logger.info("{}", new BaseModel().getClass().getClassLoader()); //sun.misc.Launcher$AppClassLoader@5d53d05b
+
+            logger.info("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
 
             logger.info("{}", Thread.class.getResource("/").getPath());
             logger.info("{}", BaseModel.class.getResource("/").getPath());
@@ -55,7 +54,7 @@ public class ResourceTest {
             logger.info("{}", contextClassLoader.getResource("logback-test.xml"));
             logger.info("{}", contextClassLoader.getResource("app-test.properties"));
 
-            logger.info("{}", BaseModel.class.getResource("app.properties"));
+            logger.info("{}", BaseModel.class.getResource("app.properties")); // null
             logger.info("{}", BaseModel.class.getResource("/app.properties"));
             logger.info("{}", BaseModel.class.getResource("/app-test.properties"));
 
@@ -82,6 +81,28 @@ public class ResourceTest {
             logger.info("{}", classLoader.getResource("org/springframework/util/Assert.class"));
 
             ClassPathResource r = new ClassPathResource("/app.properties");
+            logger.info("{}", r);
+            logger.info("{}", r.getURL().getPath());
+        } catch (Exception e) {
+            logger.error("", e);
+        }
+    }
+
+    @Test
+    public void test3() {
+        try {
+            ClassPathResource r = new ClassPathResource("app.properties");
+            logger.info("{}", r);
+            logger.info("{}", r.getURL().getPath());
+        } catch (Exception e) {
+            logger.error("", e);
+        }
+    }
+
+    @Test
+    public void test4() {
+        try {
+            ClassPathResource r = new ClassPathResource("app-test.properties");
             logger.info("{}", r);
             logger.info("{}", r.getURL().getPath());
         } catch (Exception e) {
