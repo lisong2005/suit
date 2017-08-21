@@ -32,4 +32,14 @@ public class I18Test {
         System.out.println(msg1);
         System.out.println(msg2);
     }
+
+    @Test
+    public void test_002() {
+        Locale[] localeList = Locale.getAvailableLocales();
+        for (Locale l : localeList) {
+            String s = String.format("%2$s=%1$s \t %4$s=%3$s", l.getDisplayCountry(),
+                l.getCountry(), l.getDisplayLanguage(), l.getLanguage());
+            System.out.println(s);
+        }
+    }
 }
