@@ -58,4 +58,17 @@ public class ArrayUtilsTest {
         System.out.println("Original: " + ArrayUtils.toString(array));
         System.out.println("Reversed: " + ArrayUtils.toString(reversed));
     }
+
+    @Test
+    public void test_004() {
+        String[] stringArray = { "Red", "Orange", "Blue", "Brown", "Red" };
+
+        boolean containsBlue = ArrayUtils.contains(stringArray, "Blue");
+        int indexOfRed = ArrayUtils.indexOf(stringArray, "Red");
+        int lastIndexOfRed = ArrayUtils.lastIndexOf(stringArray, "Red");
+
+        System.out.println("Array contains 'Blue'? " + containsBlue);
+        System.out.println("Index of 'Red'? " + indexOfRed);
+        System.out.println("Last Index of 'Red'? " + lastIndexOfRed);
+    }
 }

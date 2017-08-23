@@ -31,6 +31,7 @@ public class StringEscUtilsTest {
         try {
             logger.info("{}", StringEscapeUtils.escapeJava("äöü"));
             logger.info("{}", StringEscapeUtils.escapeJava("𐐀"));
+            logger.info("{}", StringEscapeUtils.escapeJava("ø"));
             logger.info("{}", StringEscapeUtils.escapeJava("小飞侠"));
             logger.info("{}", StringEscapeUtils.escapeJava(input));
             logger.info("{}", StringEscapeUtils.unescapeJava(input));
