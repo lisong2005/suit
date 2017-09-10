@@ -4,8 +4,13 @@
  */
 package ls.demon.commons.security.rsa;
 
+import java.security.KeyFactory;
+import java.security.PrivateKey;
+import java.security.PublicKey;
+import java.security.interfaces.RSAPrivateCrtKey;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
+import java.security.spec.RSAPrivateCrtKeySpec;
 
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.binary.Hex;
@@ -14,6 +19,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import ls.demon.commons.security.PrivateKeyUtils;
 import ls.demon.commons.security.rsa.RSAUtils.RSAKeyPair;
 
 /**
@@ -87,5 +93,35 @@ public class RSAUtilsTest {
         logger.info("公钥\n{}", pubKey);
         logger.info("公钥\n{}", Hex.encodeHexString(pubKey.getEncoded()));
 
+    }
+
+    @Test
+    public void test_004() {
+        try {
+            RSAPrivateKey priKey = keys.getPrivateKey();
+            RSAPublicKey pubKey = keys.getPublicKey();
+
+            PublicKey pubKey2 = PrivateKeyUtils.getPublicKeyFromPrivateKey(priKey);
+            logger.info("{}", Base64.encodeBase64String(pubKey.getEncoded()));
+            logger.info("{}", Base64.encodeBase64String(pubKey2.getEncoded()));
+            logger.info("xxxxxxxxxxxxxxxxxx");
+
+            RSAPrivateCrtKey privKey = (RSAPrivateCrtKey) priKey;
+            logger.info("{}", Base64.encodeBase64String(priKey.getEncoded()));
+            logger.info("{}", Base64.encodeBase64String(privKey.getEncoded()));
+            logger.info("xxxxxxxxxxxxxxxxxx");
+
+            RSAPrivateCrtKeySpec pks = new RSAPrivateCrtKeySpec(privKey.getModulus(),
+                privKey.getPublicExponent(), privKey.getPrivateExponent(), privKey.getPrimeP(),
+                privKey.getPrimeQ(), privKey.getPrimeExponentP(), privKey.getPrimeExponentQ(),
+                privKey.getCrtCoefficient());
+            KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+            PrivateKey priKey2 = keyFactory.generatePrivate(pks);
+
+            logger.info("{}", Base64.encodeBase64String(priKey.getEncoded()));
+            logger.info("{}", Base64.encodeBase64String(priKey2.getEncoded()));
+        } catch (Exception e) {
+            logger.error("", e);
+        }
     }
 }

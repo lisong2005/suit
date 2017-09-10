@@ -2,7 +2,7 @@
  * Witontek.com.
  * Copyright (c) 2012-2017 All Rights Reserved.
  */
-package ls.demon.commons.security;
+package ls.demon.commons.security.rsa;
 
 import java.math.BigInteger;
 import java.security.KeyPair;
